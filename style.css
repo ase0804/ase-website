@@ -937,13 +937,31 @@ body {
     html {
         font-size: 14px;
     }
-    .nav {
-        display: none;
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    section, .store-top-banner {
+        padding: 40px 20px !important;
+    }
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Force 1 column specifically */
+    .method-cards, 
+    .school-tags-rows, 
+    .school-tags-row, 
+    .profile-garden-layout, 
+    .flow-steps, 
+    .store-links-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     .method-cards {
-        grid-template-columns: 1fr;
-        max-width: 450px;
-        margin: 0 auto;
+        max-width: 100%;
+        gap: 2rem;
     }
     .hero-title {
         font-size: 4.5rem;
@@ -984,6 +1002,13 @@ body {
     }
     .contact-form-wrapper {
         padding: 2.5rem 1.5rem;
+    }
+    .profile-garden-layout {
+        gap: 3rem;
+    }
+    
+    .nav {
+        display: none;
     }
     .radio-group {
         flex-direction: column;
