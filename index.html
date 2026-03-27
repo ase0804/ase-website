@@ -17,7 +17,15 @@
                 <a href="#home" style="text-decoration:none;"><h1 class="logo">ASE</h1></a>
                 <span class="logo-sub">-Advanced Support for Education-</span>
             </div>
-            <nav class="nav">
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="nav">
                 <ul class="nav-list">
                     <li><a href="#home">ホーム</a></li>
                     <li><a href="#method">ASEの強み</a></li>
@@ -35,7 +43,7 @@
         <!-- Home / Hero -->
         <section id="home" class="hero">
             <div class="hero-content">
-                <h2 class="catchphrase">関西最難関中学受験<br><span>国語専門塾</span></h2>
+                <h2 class="catchphrase">関西中学受験<br><span>国語専門塾ASE</span></h2>
                 <div class="hero-credential">
                     <p class="credential-highlight">希学園・浜学園にて指導歴20年以上</p>
                     <p>累計1万人以上の生徒を受け持った指導実績</p>
@@ -73,7 +81,7 @@
             <div class="container">
                 <h2 class="section-title">合格実績</h2>
                 <div class="results-banner garden-banner">
-                    <h3>主な関西男子最難関校への合格実績</h3>
+                    <h3>主な関西最難関校への合格実績</h3>
                     <div class="school-tags-rows">
                         <div class="school-tags-row">
                             <span class="tag">灘</span>
@@ -95,9 +103,9 @@
                 <h2 class="section-title left-align">代表プロフィール</h2>
                 <div class="profile-garden-layout">
                     <div class="profile-text-area">
-                        <div class="profile-text-content">
+                        <div class="profile-text-content profile-framed">
                             <h3 class="profile-name">松本一真<span>（まつもといっしん）</span></h3>
-                            <p class="profile-desc">大手進学塾（希学園・浜学園）にて20年以上の指導歴、<br>累計1万人以上の指導実績。<br><br>長年培ってきた指導ノウハウをもとに、一人ひとりの生徒が持つ可能性を最大限に引き出し、最難関校受験をサポートします。</p>
+                            <p class="profile-desc">大手進学塾（希学園・浜学園）にて20年以上の指導歴、<br>累計1万人以上の指導実績。<br><br>長年培ってきた指導ノウハウをもとに、<br>一人ひとりの生徒が持つ可能性を最大限に引き出し、<br>最難関校受験を力強くサポートします。</p>
                         </div>
                     </div>
                     <div class="profile-art-area">
@@ -125,7 +133,7 @@
                 <div class="store-links-container">
                     <a href="https://kokugoclub.base.shop/" target="_blank" class="store-btn">BASE<br><span>公式ショップ</span></a>
                     <a href="https://mercari-shops.com/shops/2JGmnUjJHoNTx89DTQD5gP" target="_blank" class="store-btn">メルカリ<br><span>教材販売</span></a>
-                    <a href="https://note.com/limber_coyote169/n/nbb6f5dcfa129" target="_blank" class="store-btn">note<br><span>学習コラム</span></a>
+                    <a href="https://note.com/limber_coyote169/n/nbb6f5dcfa129" target="_blank" class="store-btn">教材販売<br><span>＆学習コラム</span></a>
                 </div>
             </div>
         </div>
@@ -207,9 +215,6 @@
                             <label for="grade">現在の学年 <span class="required">必須</span></label>
                             <select id="grade" name="grade" required>
                                 <option value="">選択してください</option>
-                                <option value="小1">小学1年生</option>
-                                <option value="小2">小学2年生</option>
-                                <option value="小3">小学3年生</option>
                                 <option value="小4">小学4年生</option>
                                 <option value="小5">小学5年生</option>
                                 <option value="小6">小学6年生</option>
@@ -285,6 +290,25 @@
             el.classList.add('fade-in');
             observer.observe(el);
         });
+
+        // Hamburger Menu Logic
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
